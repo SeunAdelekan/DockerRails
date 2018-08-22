@@ -20,36 +20,35 @@ RUN apt-get update -y && \
     apt-get install -y build-essential tcl
 
 # MySQL installation.
-RUN apt-get install mysql-server
+RUN apt-get install mysql-server -y
 
 # PostgreSQL installation.
 RUN apt-get install -y postgresql postgresql-contrib
 
-# RabbitMQ installation.
-RUN echo "deb http://www.rabbitmq.com/debian/ testing main" >> /etc/apt/sources.list && \
-    curl http://www.rabbitmq.com/rabbitmq-signing-key-public.asc | sudo apt-key add - && \
-    apt-get update -y && \
-    apt-get install rabbit-mq-server
-
 # Redis installation.
-RUN cd /temp && \
-    curl -O http://download.redis.io/redis-stable.tar.gz && \
+RUN curl -O http://download.redis.io/redis-stable.tar.gz && \
     tar xzvf redis-stable.tar.gz && \
     cd redis-stable && \
     make && \
-    make install && \
-    cd ~
+    make install
 
 # ImageMagick installation.
 RUN apt-get install imagemagick -y
 
-WORKDIR /app
-COPY . /app
+# Node.js installation.
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
+    apt-get install nodejs -y && \
+    apt-get install npm -y
 
-#RUN rails new TestApp -d postgresql
-#RUN cd ./TestApp
-#RUN ls
+# Start Postgres and MySQL services.
+RUN service postgresql start && \
+    service mysql start
 
-EXPOSE 80 81 3000
+WORKDIR /src
+COPY . /src
 
-CMD cd ./TestApp && rails server
+RUN bundle install
+
+EXPOSE 80 3000
+
+CMD ["bundle", "exec", "rails", "server"]
