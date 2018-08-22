@@ -47,8 +47,6 @@ RUN service postgresql start && \
 WORKDIR /src
 COPY . /src
 
-RUN bundle install
-
 EXPOSE 80 3000
 
 CMD ["bundle", "exec", "rails", "server"]
