@@ -2,7 +2,7 @@ FROM ruby:2.5
 
 LABEL name="DockerRails"
 LABEL maintainer="Iyanu Adelekan <iyanuadelekan@gmail.com>"
-LABEL description="A benevolent docker container for Rails."
+LABEL description="A benevolent Docker container for Rails."
 LABEL build_version=1.0
 LABEL license="MIT"
 
