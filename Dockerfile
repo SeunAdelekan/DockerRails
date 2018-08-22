@@ -1,31 +1,54 @@
 FROM ruby:2.5
-MAINTAINER "Iyanu Adelekan <iyanuadelekan@gmail.com>"
+
+LABEL name="DockerRails"
+LABEL maintainer="Iyanu Adelekan <iyanuadelekan@gmail.com>"
+LABEL description="A benevolent docker container for Rails."
+LABEL build_version=1.0
+LABEL license="MIT"
 
 RUN bundle config --global frozen 1
 
-WORKDIR /app
+ARG rails_version=5.2.1
+LABEL rails_version=${rails_version}
 
-COPY . /app
+# Rails installation.
+RUN gem install rails -v ${rails_version}
 
-# Install Rails.
-RUN gem install rails
+# Update apt-get package registry.
+RUN apt-get update -y && \
+    apt-get -y upgrade && \
+    apt-get install -y build-essential tcl
 
-# Installation of MySQL for use with Rails applications.
-#RUN apt-get update && \
-#    apt-get install mysql-server && \
-#    mysql_secure_installation && \
-#    mysql_install_db
+# MySQL installation.
+RUN apt-get install mysql-server
 
-# Installation of PostgreSQL for use with Rails applications.
-RUN apt-get update -y
+# PostgreSQL installation.
 RUN apt-get install -y postgresql postgresql-contrib
+
+# RabbitMQ installation.
+RUN echo "deb http://www.rabbitmq.com/debian/ testing main" >> /etc/apt/sources.list && \
+    curl http://www.rabbitmq.com/rabbitmq-signing-key-public.asc | sudo apt-key add - && \
+    apt-get update -y && \
+    apt-get install rabbit-mq-server
+
+# Redis installation.
+RUN cd /temp && \
+    curl -O http://download.redis.io/redis-stable.tar.gz && \
+    tar xzvf redis-stable.tar.gz && \
+    cd redis-stable && \
+    make && \
+    make install && \
+    cd ~
 
 # ImageMagick installation.
 RUN apt-get install imagemagick -y
 
-RUN rails new TestApp -d postgresql
-RUN cd ./TestApp
-RUN ls
+WORKDIR /app
+COPY . /app
+
+#RUN rails new TestApp -d postgresql
+#RUN cd ./TestApp
+#RUN ls
 
 EXPOSE 80 81 3000
 
