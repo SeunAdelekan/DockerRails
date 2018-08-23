@@ -2,7 +2,7 @@
 [![](https://images.microbadger.com/badges/version/iyanu/rails.svg)](https://microbadger.com/images/iyanu/rails "Get your own version badge on microbadger.com")
 [![](https://images.microbadger.com/badges/license/iyanu/rails.svg)](https://microbadger.com/images/iyanu/rails "Get your own license badge on microbadger.com")
 
-A benevolent (Docker)[http://docker.com/] image for (Ruby on Rails)[https://rubyonrails.org]. Along with Rails, this image comes bundles with common tools and utilities used in Rails applications such as:
+A benevolent [Docker](http://docker.com/) image for [Ruby on Rails](https://rubyonrails.org). Along with Rails, this image comes bundles with common tools and utilities used in Rails applications such as:
 - MySQL
 - PostgreSQL
 - Node.js
