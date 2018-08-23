@@ -19,7 +19,7 @@ cd ./AwesomeApp
 bundle
 ```
 
-### Create your docker image
+### Create Docker Image
 Having created an application to run, you'll need to create a docker image  for it.
 Firstly create a Dockerfile as shown below:
 
@@ -55,7 +55,7 @@ docker run -p 80:3000 awesome-app
 
 A container for your application will be created.
 
-### Viewing Application
+### View Application
 To view your application, open your browser of choice and point it to
 http://localhost:80
 
