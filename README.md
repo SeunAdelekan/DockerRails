@@ -1,5 +1,4 @@
 # DockerRails
-[![](https://images.microbadger.com/badges/image/iyanu/rails.svg)](https://microbadger.com/images/iyanu/rails "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/iyanu/rails.svg)](https://microbadger.com/images/iyanu/rails "Get your own version badge on microbadger.com")
 [![](https://images.microbadger.com/badges/license/iyanu/rails.svg)](https://microbadger.com/images/iyanu/rails "Get your own license badge on microbadger.com")
 
