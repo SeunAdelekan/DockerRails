@@ -1,6 +1,5 @@
 # DockerRails
-A benevolent docker image for Ruby on Rails. Along with Rails, this image includes common tools and utilities required to get
-Rails applications up and running such as:
+A benevolent (Docker)[http://docker.com/] image for (Ruby on Rails)[https://rubyonrails.org]. Along with Rails, this image comes bundles with common tools and utilities used in Rails applications such as:
 - MySQL
 - PostgreSQL
 - Node.js
@@ -15,13 +14,11 @@ rails new AwesomeApp
 Open your generated application's directory and run bundle:
 
 ```bash
-cd ./AwesomeApp
-bundle
+cd ./AwesomeApp && bundle
 ```
 
 ### Create Docker Image
-Having created an application to run, you'll need to create a docker image  for it.
-Firstly create a Dockerfile as shown below:
+Having created an application to run, you'll need to create a docker image for it. Firstly create a Dockerfile as shown below:
 
 ```Dockerfile
 FROM iyanu/rails:latest
@@ -58,4 +55,5 @@ A container for your application will be created.
 ### View Application
 To view your application, open your browser of choice and point it to
 http://localhost:80
+![Awesome App](images/Awesome App.JPG?raw=true "")
 
