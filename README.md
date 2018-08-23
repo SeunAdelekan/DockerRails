@@ -54,7 +54,10 @@ A container for your application will be created.
 
 ### View Application
 To view your application, open your browser of choice and point it to
-http://localhost:80
+http://localhost:80.
 
 ![alt_text](images/AwesomeApp.jpg?raw=true "")
+
+## License
+[MIT](LICENSE)
 
