@@ -1,4 +1,4 @@
-FROM ruby:2.5
+FROM ruby:2.5.1
 
 LABEL name="DockerRails"
 LABEL maintainer="Iyanu Adelekan <iyanuadelekan@gmail.com>"
