@@ -55,5 +55,5 @@ A container for your application will be created.
 ### View Application
 To view your application, open your browser of choice and point it to
 http://localhost:80
-![Awesome App](images/Awesome App.JPG?raw=true "")
+![Awesome App](images/Awesome App.jpg?raw=true "")
 
