@@ -47,7 +47,13 @@ Now build your Docker image:
 docker build -t awesome-app .
 ```
 
-Create and run a container with your built image:
+**NOTE**: DockerRails installs Rails 5.2.1 by default. To specify the rails version to be installed with your image pass a `rails_version` build argument to the `docker build` command as shown below:
+
+```bash
+docker build -t awesome-app . --build-arg rails_version=<version>
+```
+
+After building an image, create and run a container with the built image:
 
 ```bash
 docker run -p 80:3000 awesome-app
@@ -60,6 +66,8 @@ To view your application, open your browser of choice and point it to
 http://localhost:80.
 
 ![alt_text](images/AwesomeApp.jpg?raw=true "")
+
+Want to try out a quick test app? Try out the docker-rails-sample application [here](https://github.com/SeunAdelekan/docker-rails-sample)
 
 ## License
 [MIT](LICENSE)
